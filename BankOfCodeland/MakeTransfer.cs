@@ -11,7 +11,7 @@ public record MakeTransfer(
     DateTime Timestamp = default
 ) : Command(Timestamp)
 {
-    internal static MakeTransfer Dummy => new(
+    public static MakeTransfer Dummy => new(
         default,
         default,
         default,

@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddTransient<DateNotPastValidator>(_ => new DateNotPastValidator(DateTime.UtcNow));
+builder.Services.AddSingleton<DateNotPastValidator>(_ => new DateNotPastValidator(() => DateTime.UtcNow));
 
 var app = builder.Build();
 

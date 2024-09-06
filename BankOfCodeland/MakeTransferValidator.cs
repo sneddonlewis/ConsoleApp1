@@ -9,9 +9,9 @@ public class BicFormatValidator : IValidator<MakeTransfer>
     public bool IsValid(MakeTransfer t) => _regex.IsMatch(t.Bic);
 }
 
-public record DateNotPastValidator(DateTime Today) : IValidator<MakeTransfer>
+public record DateNotPastValidator(Func<DateTime> Clock) : IValidator<MakeTransfer>
 {
-    private DateTime Today { get; } = Today;
+    private Func<DateTime> Clock { get; } = Clock;
     
-    public bool IsValid(MakeTransfer t) => (Today <= t.Date.Date);
+    public bool IsValid(MakeTransfer t) => (Clock().Date <= t.Date.Date);
 }
