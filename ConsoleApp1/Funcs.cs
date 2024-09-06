@@ -8,4 +8,7 @@ public static class Funcs
     public static string Concat(string f, string s) => f + s;
 
     public static Func<int, bool> IsMod(int n) => i => i % n == 0;
+
+    public static Func<T, bool> NegatePredicate<T>(this Func<T, bool> pred) =>
+        (input) => !pred(input);
 }

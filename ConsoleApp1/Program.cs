@@ -1,24 +1,34 @@
-﻿// See https://aka.ms/new-console-template for more information
-
-using ConsoleApp1;
+﻿using ConsoleApp1;
 using static System.Linq.Enumerable;
+using static System.Console;
 using static ConsoleApp1.Funcs;
 
-var thing = Enumerable.Range(1, 100)
-    .Where(i => i % 10 == 0)
-    .OrderBy(i => -i)
-    .Select(i => $"{i}%");
+// Range(1, 100)
+//     .Where(i => i % 10 == 0)
+//     .OrderBy(i => -i)
+//     .Select(i => $"{i}%")
+//     .ForEach(WriteLine);
 
 var pair = "EURUSD".AsPair();
-Console.WriteLine(pair.Base);
-Console.WriteLine(pair.Quote);
+// WriteLine(pair.Base);
+// WriteLine(pair.Quote);
 
-Console.WriteLine(Concat("hello, ", "world"));
+// WriteLine(Concat("hello, ", "world"));
 
-Console.WriteLine(Funcs.SwapArgs<string, string, string>(Concat)("hello, ", "world"));
+// WriteLine(Funcs.SwapArgs<string, string, string>(Concat)("hello, ", "world"));
 
-var even = Range(1, 20).Where(Funcs.IsMod(2));
-foreach (var n in even)
+// Range(1, 20)
+//     .Where(IsMod(2))
+//     .ForEach(WriteLine);
+
+var Pred = (int i) => i > 0;
+
+var negated = Pred.NegatePredicate()(1);
+// WriteLine(negated);
+
+var list = new List<string>()
 {
-    Console.WriteLine(n);
-}
+    "hello", "UNIQUE", "bLaRgH"
+};
+
+list.AsParallel().Format().ForEach(WriteLine);

@@ -1,3 +1,3 @@
 namespace ConsoleApp1.VatProblem;
 
-public record Product(string Name, decimal Price, bool IsFood);
+public readonly record struct Product(string Name, decimal Price, bool IsFood);
