@@ -1,4 +1,5 @@
-﻿using ConsoleApp1;
+﻿using BankOfCodeland;
+using ConsoleApp1;
 using static System.Linq.Enumerable;
 using static System.Console;
 using static ConsoleApp1.Funcs;
@@ -31,4 +32,5 @@ var list = new List<string>()
     "hello", "UNIQUE", "bLaRgH"
 };
 
-list.AsParallel().Format().ForEach(WriteLine);
+var output = list.AsParallel().Format().Aggregate((acc, curr) => acc + Environment.NewLine + curr);
+WriteLine(output);
