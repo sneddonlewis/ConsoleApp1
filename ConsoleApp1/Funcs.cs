@@ -11,4 +11,11 @@ public static class Funcs
 
     public static Func<T, bool> NegatePredicate<T>(this Func<T, bool> pred) =>
         (input) => !pred(input);
+
+    public static Func<T, ValueTuple> ToFunc<T>(Action<T> act) =>
+        (x) =>
+        {
+            act(x);
+            return default;
+        };
 }
